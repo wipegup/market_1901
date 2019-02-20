@@ -23,7 +23,8 @@ class Market
 
   def total_inventory
     sorted_item_list.inject(Hash.new(0)) do |agg_hash, item|
-      agg_hash[item] = vendors_that_sell(item).sum{ |vendor| vendor.check_stocks(item)}
+      # require 'pry'; binding.pry
+      agg_hash[item] = vendors_that_sell(item).sum{ |vendor| vendor.check_stock(item)}
       agg_hash
     end
   end
