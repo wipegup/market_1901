@@ -32,9 +32,10 @@ class Market
     return false if total_inventory[item] >= quantity == false
 
     to_sell = quantity
-    # vendors = 
+
     vendors_that_sell(item).each do |vendor|
       vendor_stock = vendor.check_stock(item)
+      
       if vendor_stock >= to_sell
         vendor.stock(item, -to_sell)
         return true
