@@ -22,7 +22,7 @@ class Market
   end
 
   def total_inventory
-    inventory = {}
+    inventory = Hash.new(0)
     sorted_item_list.each do |item|
       total = vendors_that_sell(item).inject(0) do |agg, vendor|
         agg + vendor.check_stock(item)
@@ -31,5 +31,9 @@ class Market
     end
 
     inventory
+  end
+
+  def sell(item, quantity)
+    total_inventory[item] >= quantity
   end
 end
