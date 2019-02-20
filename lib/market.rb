@@ -22,15 +22,12 @@ class Market
   end
 
   def total_inventory
-    inventory = Hash.new(0)
-    sorted_item_list.each do |item|
-      total = vendors_that_sell(item).inject(0) do |agg, vendor|
+    sorted_item_list.inject(Hash.new(0)) do |agg_hash, item|
+      agg_hash[item] = vendors_that_sell(item).inject(0) do |agg, vendor|
         agg + vendor.check_stock(item)
       end
-      inventory[item] = total
+      agg_hash
     end
-
-    inventory
   end
 
   def sell(item, quantity)
