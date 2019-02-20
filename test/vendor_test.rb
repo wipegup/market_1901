@@ -21,7 +21,7 @@ class VendorTest < Minitest::Test
   end
 
   def test_check_stock_returns_0_if_key_not_present
-
+    assert_equal 0, @vendor.check_stock("Peaches")
   end
 
 end
