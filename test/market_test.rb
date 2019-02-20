@@ -32,10 +32,10 @@ class MarketTest < Minitest::Test
   end
 
   def test_market_can_add_vendors
-    market.add_vendor(@vendor_1)
-    market.add_vendor(@vendor_2)
-    market.add_vendor(@vendor_3)
-    
+    @market.add_vendor(@vendor_1)
+    @market.add_vendor(@vendor_2)
+    @market.add_vendor(@vendor_3)
+
     expected = [@vendor_1, @vendor_2, @vendor_3]
     assert_equal expected, @market.vendors
   end

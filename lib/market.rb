@@ -6,6 +6,6 @@ class Market
   end
 
   def add_vendor(vendor)
-    @vendors << vendor)
+    @vendors << vendor
   end
 end
