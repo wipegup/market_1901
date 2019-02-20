@@ -24,4 +24,11 @@ class VendorTest < Minitest::Test
     assert_equal 0, @vendor.check_stock("Peaches")
   end
 
+  def test_stock_adds_correct_value_at_key
+    @vendor.stock("Peaches", 30)
+    assert_equal 30, @vendor.check_stock("Peaches")
+    assert_equal ({"Peaches" => 30}), @vendor.inventory
+  end
+
+
 end
