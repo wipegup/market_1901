@@ -8,4 +8,8 @@ class Market
   def add_vendor(vendor)
     @vendors << vendor
   end
+
+  def vendors_that_sell(item)
+    @vendors.find_all{|vendor| vendor.inventory[item] >0}
+  end
 end
