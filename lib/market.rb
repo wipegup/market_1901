@@ -20,4 +20,16 @@ class Market
     end
     items.uniq.sort
   end
+
+  def total_inventory
+    inventory = {}
+    sorted_item_list.each do |item|
+      total = vendors_that_sell(item).inject(0) do |agg, vendor|
+        agg + vendor.check_stock(item)
+      end
+      inventory[item] = total
+    end
+
+    inventory
+  end
 end
